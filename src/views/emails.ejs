@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter - Emails cadastrados</title>
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">   
+
+</head>
+<body class="container-custom">
+        <img class="emails-img" src="/conceito-de-noticias-para-a-pagina-de-destino.png" alt="">
+        <div>
+            <h1 class="title-email">Pessoas que escolheram estarem informadas</h1>
+            <ul class="pt-4">
+                <% emails.forEach(mail => { %>
+                    <div class="iten-list">
+                        <li class="text-list"><%= mail %></li> 
+                        <form action="/delete-email" method="POST" style="display:inline;">
+                            <input type="hidden" name="email" value="<%= mail %>">
+                            <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                        </form>   
+                    </div>
+                <% }) %> 
+            </ul>
+        </div>
+</body>
+</html>
